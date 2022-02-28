@@ -6,57 +6,47 @@ using System.Threading.Tasks;
 
 namespace LinkListProblems
 {
-    public class LinkListOperation
+    internal class LinkListOperation
     {
-        internal Node head;
-        public void Add(int data)
+        Node head = null;
+        public void insert(int value)
         {
-            Node node = new Node(data);
-            if (this.head == null)
+            Node temp = head;
+            Node newNode = new Node();
+
+            newNode.data = value;
+            newNode.next = null;
+            if (head != null)
             {
-                this.head = node;
-            }
-            else
-            {
-                Node temp = head;
                 while (temp.next != null)
                 {
                     temp = temp.next;
                 }
-                temp.next = node;
-            }
-            Console.WriteLine("inserted into the linked list", node.data);
-        }
-
-
-        public void Add2(int data)
-        {
-            Node node = new Node(data);
-            if (this.head == null)
-            {
-                this.head = node;
+                temp.next = newNode;
             }
             else
             {
-                node.next = head;
-                this.head = node;
+                head = newNode;
             }
-            Console.WriteLine("inserted into the list", node.data);
         }
-        public void Display()
+        public void insertAfter(int value)
         {
-            Node temp = this.head;
-            if (temp == null)
+            Node newNode = new Node();
+            newNode.data = value;
+            newNode.next = null;
+            Node temp = head;
+            head = newNode;
+            newNode.next = temp;
+        }
+        public void display()
+        {
+            Node temp = head;
+            while (temp.next != null)
             {
-                Console.WriteLine("Linked List is empty");
-            }
-            Console.WriteLine("Squence of list");
-            while (temp != null)
-            {
-                Console.WriteLine(temp.data + " ");
+                Console.WriteLine(temp.data);
                 temp = temp.next;
             }
-            Console.WriteLine();
+            Console.WriteLine(temp.data);
         }
     }
 }
