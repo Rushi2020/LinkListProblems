@@ -12,8 +12,6 @@ namespace LinkListProblems
             listOperation.Add(70);
             listOperation.Display();
 
-
-
             listOperation = new LinkListOperation();
 
             listOperation.Add2(70);
