@@ -29,24 +29,29 @@ namespace LinkListProblems
                 head = newNode;
             }
         }
-        public void insertAfter(int value)
+        public void DeleteFirst()
         {
-            Node newNode = new Node();
-            newNode.data = value;
-            newNode.next = null;
             Node temp = head;
-            head = newNode;
-            newNode.next = temp;
+            head = head.next;
         }
-        public void display()
+
+
+        public void Display()
         {
-            Node temp = head;
-            while (temp.next != null)
+            if (head == null)
             {
-                Console.WriteLine(temp.data);
-                temp = temp.next;
+                Console.WriteLine("list is empty");
             }
-            Console.WriteLine(temp.data);
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    Console.WriteLine(temp.data);
+                    temp = temp.next;
+                }
+                Console.WriteLine(temp.data);
+            }
         }
     }
 }
